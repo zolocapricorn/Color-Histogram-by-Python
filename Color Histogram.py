@@ -28,8 +28,10 @@ while True:
         break
     last_height = new_height
 
-for p in range(1, 102):
+for p in range(1, 105):
     try:
-        driver.find_element_by_xpath('//*[@id="islrg"]/div[1]/div['+str(p)+']/a[1]/div[1]/img').screenshot("F:/Github/Dataset (orange)/jpg/orange("+str(p)+").jpg")
+        driver.find_element_by_xpath('//*[@id="islrg"]/div[1]/div['+str(p)+']/a[1]/div[1]/img').screenshot("F:/Github/Dataset (orange)/png/orange("+str(p)+").png")
     except:
         pass
+
+#ภาพที่ 25 หาร 25 ลงตัว จะไม่สามารถรันได้
