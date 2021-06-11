@@ -4,6 +4,32 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 #Opens up web driver and goes to Google Images
-driver = webdriver.Firefox()
-driver.get("https://www.google.com/search?q=orange&client=firefox-b-d&sxsrf=ALeKk02rFLZJDczUwawr91XzwZKUChRX3Q:1623329826893&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjclb3tjo3xAhXJzjgGHS26BJgQ_AUoAXoECAEQAw&biw=1536&bih=711")
+driver = webdriver.Chrome("C:/Users/Lenovo/Downloads/chromedriver.exe")
+driver.get("https://www.google.com/")
 
+box = driver.find_element_by_xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input")
+box.send_keys("orange fruit")
+box.send_keys(Keys.ENTER)
+
+driver.find_element_by_xpath('//*[@id="hdtb-msb"]/div[1]/div/div[2]/a').click()
+
+#Will keep scrolling down the webpage until it cannot scroll no more
+last_height = driver.execute_script('return document.body.scrollHeight')
+while True:
+    driver.execute_script('window.scrollTo(0,document.body.scrollHeight)')
+    time.sleep(2)
+    new_height = driver.execute_script('return document.body.scrollHeight')
+    try:
+        driver.find_element_by_xpath("/html/body/div/div/div/div/div[5]/input").click()
+        time.sleep(2)
+    except:
+        pass
+    if new_height == last_height:
+        break
+    last_height = new_height
+
+for p in range(1, 102):
+    try:
+        driver.find_element_by_xpath('//*[@id="islrg"]/div[1]/div['+str(p)+']/a[1]/div[1]/img').screenshot("F:/Github/Dataset (orange)/jpg/orange("+str(p)+").jpg")
+    except:
+        pass
