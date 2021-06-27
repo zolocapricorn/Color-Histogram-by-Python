@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="geckodriver-v0.29.1-win64">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/geckodriver-v0.29.1-win64.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
