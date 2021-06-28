@@ -5,7 +5,7 @@ import os
 # creating object
 response = google_images_download.googleimagesdownload()
 
-search_queries =["orange fruit jpg"]
+search_queries =["apple fruits jpg"]
 
 
 def downloadimages(query):
@@ -20,7 +20,7 @@ def downloadimages(query):
     arguments = {"keywords": query,
                  "limit": 100,
                  "print_urls": True,
-                 "image_directory": "oranges",
+                 "image_directory": "apples",
                  "chromedriver": "C:/Program Files/Google/Chrome/Application/chromedriver.exe"}
     try:
         response.download(arguments)
@@ -30,7 +30,7 @@ def downloadimages(query):
         arguments = {"keywords": query,
                      "limit": 100,
                      "print_urls": True,
-                     "image_directory": "oranges",
+                     "image_directory": "apples",
                      "chromedriver": "C:/Program Files/Google/Chrome/Application/chromedriver.exe"}
 
         # Providing arguments for the searched query
@@ -46,13 +46,11 @@ for query in search_queries:
     downloadimages(query)
 # Change name
 def main():
-    paths = "E:/Github/Color-Histogram-by-Python/downloads/oranges/"
+    paths = "E:/Github/Color-Histogram-by-Python/downloads/apples/"
     for count, filename in enumerate(os.listdir(paths)):
-        dst = "orange " + str(count) +".jpg"
+        dst = "apple " + str(count+1) +".jpg"
         src = paths+filename
         dst = paths+dst
-        print(filename)
-        print(src)
         os.rename(src, dst)
 if __name__ == '__main__':
     main()
