@@ -2,6 +2,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
+import urllib.request
+import os
 
 #Opens up web driver and goes to Google Images
 driver = webdriver.Chrome("C:/Users/Lenovo/Downloads/chromedriver.exe")
@@ -30,8 +32,20 @@ while True:
 
 for p in range(1, 105):
     try:
-        driver.find_element_by_xpath('//*[@id="islrg"]/div[1]/div['+str(p)+']/a[1]/div[1]/img').screenshot("F:/Github/Color-Histogram-by-Python/Dataset/Apple/apple("+str(p)+").png")
+        img = driver.find_element_by_xpath('//*[@id="islrg"]/div[1]/div['+str(p)+']/a[1]/div[1]/img')
+        src = img.get_attribute('src')
+        urllib.request.urlretrieve(src, "E:/Github/Color-Histogram-by-Python/Dataset from Dataset.py/apples/b "+str(p)+".jpg")
     except:
         pass
+
+def main():
+    paths = "E:/Github/Color-Histogram-by-Python/Dataset from Dataset.py/apples/"
+    for count, filename in enumerate(os.listdir(paths)):
+        dst = "apple " + str(count+1) +".jpg"
+        src = paths+filename
+        dst = paths+dst
+        os.rename(src, dst)
+if __name__ == '__main__':
+    main()
 
 #ภาพที่ 25 หาร 25 ลงตัว จะไม่สามารถรันได้
