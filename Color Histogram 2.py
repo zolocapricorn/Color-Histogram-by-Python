@@ -11,7 +11,7 @@ def getBlue(blueVal):
     return '#%02x%02x%02x' % (0, 0, blueVal)
 
 # Create an Image with specific RGB value
-image = Image.open("banana20.png")
+image = Image.open("E:/Github/Color-Histogram-by-Python/storage/Apples/sum/01.jpg")
 
 # Modify the color of two pixels
 image.putpixel((0,1), (1,1,5))
