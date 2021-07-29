@@ -42,7 +42,7 @@ for prototype in t.tqdm(range(count+1, totalFiles+1)):
 
         # Find Root Mean Square Error (RMSE)
         rmse = np.sqrt(np.mean(pow(np.subtract(hist1, hist2), 2)))
-        if rmse <= 256:
+        if rmse <= 100:
             point.append(walk)
             check.append((prototype, walk, rmse))
     count += 1
@@ -59,6 +59,12 @@ if len(result) > 0:
         if os.path.exists("E:/Github/Color-Histogram-by-Python/storage/Oranges/sum/%02d.jpg" % (delete)):
             os.remove("E:/Github/Color-Histogram-by-Python/storage/Oranges/sum/%02d.jpg" % (delete))
 
+# mse = 256
 # Apple 336 --> 313
 # Banana 412 --> 331
 # Orange 194 --> 169
+
+# mse = 100
+# Apple 335 --> 334
+# Banana 417 --> 416
+# Orange 193 --> 189
